@@ -12,6 +12,7 @@ def password(request):
 
     if request.GET.get('uppercase'):
         characters.extend(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+
     if request.GET.get('numbers'):
         characters.extend(list('0123456789'))
 
@@ -22,3 +23,7 @@ def password(request):
     for x in range(length):
         thepassword += random.choice(characters)
     return render(request, 'generator/password.html', {'password': thepassword})
+
+def about(request):
+    creator="The creator"
+    return render(request, 'generator/about.html', {'creator': creator})
