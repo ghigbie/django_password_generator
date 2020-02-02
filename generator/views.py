@@ -7,7 +7,17 @@ def home(request):
 
 def password(request):
     characters = list('abcdefghijklmnopqrs')
-    length = 10
+    length = int(request.GET.get('length', 12))
+
+    if request.GET.get('uppercase'):
+        uppercase = bool(request.GET.get('uppercase'))
+
+    if request.GET.get('numbers'):
+        numbers = bool(request.GET.get('numbers'))
+
+    if request.GET.get()'special'):
+        special = bool(request.GET.get('special'))
+        
     thepassword = ''
     for x in range(length):
         thepassword += random.choice(characters)
